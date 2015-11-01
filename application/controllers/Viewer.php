@@ -32,8 +32,8 @@ class Viewer extends Application {
 	$this->data = array_merge($this->data, (array) $this->quotes->get($id));
 	
         // find rating average
-        $this->data['average'] = ( $this->data['vote_count'] > 0 ) ?
-                                 ( $this->data['vote_total'] / $this->data['vote_count'] ) : 0;
+        $this->data['average'] = ($this->data['vote_count'] > 0) ?
+                                 ($this->data['vote_total'] / $this->data['vote_count']) : 0;
         
         // invoke rating widget
         $this->caboose->needed('jrating','hollywood');

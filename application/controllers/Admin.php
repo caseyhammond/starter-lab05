@@ -49,7 +49,7 @@ class Admin extends Application {
       
       $this->data['message'] = $message;
 
-      $this->data['fid'] = makeTextField('ID#','id',$quote->id,"Unique quote identifier, system-assigned",10,10,true);
+      $this->data['fid'] = makeTextField('ID#','id',$quote->id,"Unique quote identifier, system-assigned", 10 , 10 , true);
 
       $this->data['fwho']  = makeTextField('Author'   , 'who' , $quote->who);
       $this->data['fmug']  = makeTextField('Picture'  , 'mug' , $quote->mug);
@@ -71,6 +71,10 @@ class Admin extends Application {
       $record->who  = $this->input->post('who');
       $record->mug  = $this->input->post('mug');
       $record->what = $this->input->post('what');
+      
+      // insert default 0 values into rating db columns
+      $record->vote_total = 0;
+      $record->vote_count = 0;
 
       // validation
       if( empty($record->who))
